@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Log-in</title>
+    <script>
+function ValidateContactForm()
+{
+    var name = document.ContactForm.txtUserName;
+    var pass1 = document.ContactForm.txtPassword1;
+    var pass2 = document.ContactForm.txtPassword2;
+  
+
+    if (name.value == "")
+    {
+        window.alert("Please enter your name.");
+        name.focus();
+return false;
+		
+    }
+    
+    if (pass1.value == "")
+    {
+        window.alert("Please enter a password.");
+        pass1.focus();
+        return false;
+		
+    }
+	 if(pass1.value.length<8)
+	{
+	  window.alert("your password should be greater than 8 character.");
+	  pass1.focus();
+	  return false;
+	  
+	 }
+	  if(pass1.value != pass2.value)
+	 {
+	   window.alert("Your password is not matched.please type correct password.");
+	  pass1.focus();
+	  return false;
+	 
+	 }
+return true;
+
+}
+
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+  <body>
+
+    <div class="login-card">
+    <h1>Log-in</h1><br>
+  
+<form method="post"  action="valid.php"
+name="ContactForm" onsubmit=" return ValidateContactForm();">
+    <table align="center">
+                <tr>
+                     <td align ="right">User Name<p></td>
+                     <td><input align="right" type="text"
+                                 name="txtUserName" size="12" /><p></td>
+                 </tr>
+                 <tr>
+                       <td align ="right">Password<p></td>
+                       <td><input type="password" name="txtPassword1" size="12" />
+                                  <p></td>
+                 </tr>
+                 <tr>
+                       <td align ="right">Reenter Password<p></td>
+                       <td><input type="password" name="txtPassword2" size="12" />
+                                 <p></td>
+                 </tr>
+                 <tr> 
+                  <td class="fieldtext" colspan="2">Verification Code:</td>
+                </tr>
+                <tr align="left" valign="top"> 
+                  <td width="147"> <input name="verif_box" type="text" class="field2" id="verif_box2" /> 
+                  </td>
+                  <td width="129"><img src="verificationimage.php?" /></td>
+                </tr>
+                <tr> 
+                  <td colspan="2"><input name="Submit" type="image" src="submit.jpg" /> 
+                  </td>
+                </tr>
+             
+   
+	</table>
+</form>
+    
+  <div class="login-help">
+    <a href="#">Register</a> • <a href="#">Forgot Password</a>
+  </div>
+</div>
+</body>
+</html>
